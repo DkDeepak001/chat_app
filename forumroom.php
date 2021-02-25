@@ -1,6 +1,5 @@
 <?php
-   // require_once "session.php";
-    require_once "db.php";
+  require_once "db.php";
     require_once "fetch.php";
     if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
@@ -12,63 +11,68 @@
     $username = "chat_app";
     $password = "Password#123";
     $db_name = "chat_app";
-   
-    $user_message = ($_POST["message"]);
- 
-    // Create connection
-    $link = mysqli_connect($servername, $username, $password,$db_name);
+    $user_message = ($_POST["form"]);
+
+
+  $link = mysqli_connect($servername, $username, $password,$db_name);
     $submit =($_POST["send"]);
-      $lastsql = "SELECT * FROM `chatroom` WHERE `dept` = '$dept'";
+      $lastsql = "SELECT * FROM `forumroom` ORDER BY `forumroom`.`time` DESC LIMIT 1 ";
               $lresult = mysqli_query($link, $lastsql);
                 if (mysqli_num_rows($lresult) > 0) {
                   while($row = mysqli_fetch_assoc($lresult)) {
-                    $lmsg_owner = $row["uname"];
+                    $lmsg_owner = $row["username"];
                     $lmessage = $row["message"];
                     $ltime =$row["time"];
                     $lread =$lmsg_owner." ". $lmessage; 
                     
                   }
               } else {
-            echo "0 results";
               } 
     $cread = $sesusername ." ".$user_message;
  
-//inserting masg into db
-    if((strpos($submit,"send") !== FALSE) || strpos($user_message," ") !== FALSE){  
-          if($lread !== $cread){
-          $insert = "INSERT INTO `chatroom` (`uname`, `time`, `message`, `dept`) VALUES ('$sesusername', CURRENT_TIMESTAMP, '$user_message', '$dept'); ";
+
+
+
+
+    if (isset($_POST['submit'])){ 
+  if($lread !== $cread){
+      $insert = "INSERT INTO `forumroom` (`username`, `year`, `dept`, `time`, `message`) VALUES ('$sesusername', '$year', '$dept', CURRENT_TIMESTAMP, '$user_message')"; 
           if(mysqli_query($link,$insert)){
-              $sql = "SELECT * FROM `chatroom` ORDER BY `chatroom`.`time` DESC";
+              $sql = "SELECT * FROM `forumroom` ORDER BY `forumroom`.`time` DESC  ";
               $result = mysqli_query($link, $sql);
                 if (mysqli_num_rows($result) > 0) {
                   while($row = mysqli_fetch_assoc($result)) {
-                    $msg_owner = $row["uname"];
+                    $msg_owner = $row["username"];
                     $message = $row["message"];
                     $time =$row["time"];
-                    $read = "<p id='msgg'> message from :" .$msg_owner."<br> Message:" .$message ."<br> Time".$time ."<br><br> </p>"; 
+                    $year = $row['year'];
+                    $read = "<p class='forum-message'>" .$sesusername." From " .$year." year ".$dept."</p><p class='time'>".$time ."</p><p class='comment'>".$message. "</p> <br>"; 
                     echo $read;
+                    $user_message = "";                 
 
                   }
               } else {
             echo "0 results";
               }   
       }
-    }
-  }else{
-     $sql = "SELECT * FROM `chatroom` WHERE `dept` = '$dept' ";
+    
+}
+else{
+
+  $sql = "SELECT * FROM `forumroom` ORDER BY `forumroom`.`time` DESC ";
               $result = mysqli_query($link, $sql);
                 if (mysqli_num_rows($result) > 0) {
                   while($row = mysqli_fetch_assoc($result)) {
-                    $msg_owner = $row["uname"];
+                   $msg_owner = $row["username"];
                     $message = $row["message"];
                     $time =$row["time"];
-                    $read = "<p id='msgg'> message from :" .$msg_owner."<br> Message:" .$message ."<br> Time".$time ."<br><br> </p>"; 
+                    $year = $row['year'];
+                    $read = "<p class='forum-message'>" .$sesusername." From " .$year." year ".$dept."</p><p class='time'>".$time ."</p><p class='comment'>".$message. "</p> <br>"; 
                     echo $read;
-
+                    $user_message = "";      
                   }
-              } else {
-            echo "0 results";
-              }    
-    }  
-}
-         ?>
+                }
+              }
+            }
+          }
+?>

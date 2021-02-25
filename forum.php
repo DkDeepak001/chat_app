@@ -7,6 +7,10 @@
     <style type="text/css">
         body{ font: 14px sans-serif; }
         .wrapper{ width: 350px; padding: 20px; }
+        .forum-input{
+            margin:0% 0% 0% 10%;
+            
+        }
     </style>
     <title>Document</title>
 </head>
@@ -21,23 +25,31 @@
     
     <h1>forum</h1>
 
+
+<br>
+<form action="" method="POST">
+<textarea type="send" name="form" cols="80" rows="8" class="forum-input" ></textarea>
+<button class="btn btn-primary" type="submit" name="submit">Post</button>
+</form>
+
     <?php 
-    require_once "session.php";
-    if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
-    exit;
-   }else{
-
-   }
-    echo $_SESSION["username"];
+    require_once "forumroom.php";
+    
 ?>
-
-
-
+    
 <form action="logout.php" method="POST" > 
   <div class="form-group">
-  <input type="submit" class="btn btn-primary" value="Logout">
+  <input type="submit" class="btn btn-danger" value="Logout">
   </div> 
-  </form>     
+  </form>  
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script> 
+  $(document).ready(function() {
+ 	 $(".msggg").load("chatroom.php");
+   var refreshId = setInterval(function() {
+      $(".msggg").load('chatroom.php');
+   }, 2400);
+   $.ajaxSetup({ cache: false });
+});  
 </body>
 </html>
