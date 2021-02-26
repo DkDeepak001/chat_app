@@ -26,7 +26,6 @@
                     $lmessage = $row["message"];
                     $ltime =$row["time"];
                     $lread =$lmsg_owner." ". $lmessage; 
-                    
                   }
               } else {
             echo "0 results";

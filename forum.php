@@ -45,9 +45,9 @@
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script> 
   $(document).ready(function() {
- 	 $(".msggg").load("chatroom.php");
+ 	 $(".forum-message").load("forumroom.php");
    var refreshId = setInterval(function() {
-      $(".msggg").load('chatroom.php');
+      $(".forum-message").load('forumroom.php');
    }, 2400);
    $.ajaxSetup({ cache: false });
 });  

@@ -23,6 +23,7 @@
                     $lmsg_owner = $row["username"];
                     $lmessage = $row["message"];
                     $ltime =$row["time"];
+                    $lid = $row["uid"];
                     $lread =$lmsg_owner." ". $lmessage; 
                     
                   }
@@ -36,7 +37,7 @@
 
     if (isset($_POST['submit'])){ 
   if($lread !== $cread){
-      $insert = "INSERT INTO `forumroom` (`username`, `year`, `dept`, `time`, `message`) VALUES ('$sesusername', '$year', '$dept', CURRENT_TIMESTAMP, '$user_message')"; 
+      $insert = "INSERT INTO `forumroom` (`uid`,`username`, `year`, `dept`, `time`, `message`) VALUES (NULL,'$sesusername', '$year', '$dept', CURRENT_TIMESTAMP, '$user_message')"; 
           if(mysqli_query($link,$insert)){
               $sql = "SELECT * FROM `forumroom` ORDER BY `forumroom`.`time` DESC  ";
               $result = mysqli_query($link, $sql);
@@ -46,19 +47,19 @@
                     $message = $row["message"];
                     $time =$row["time"];
                     $year = $row['year'];
-                    $read = "<p class='forum-message'>" .$sesusername." From " .$year." year ".$dept."</p><p class='time'>".$time ."</p><p class='comment'>".$message. "</p> <br>"; 
-                    echo $read;
-                    $user_message = "";                 
-
+                    $id = $row['uid'];
+                    $read ="<a  href='view.php?myid=".$id. "'>".$message."<br></a>";
+                    echo $read;  
+                    $user_message = " ";
+                  
                   }
               } else {
             echo "0 results";
               }   
       }
-    
+    }   
 }
 else{
-
   $sql = "SELECT * FROM `forumroom` ORDER BY `forumroom`.`time` DESC ";
               $result = mysqli_query($link, $sql);
                 if (mysqli_num_rows($result) > 0) {
@@ -67,12 +68,13 @@ else{
                     $message = $row["message"];
                     $time =$row["time"];
                     $year = $row['year'];
-                    $read = "<p class='forum-message'>" .$sesusername." From " .$year." year ".$dept."</p><p class='time'>".$time ."</p><p class='comment'>".$message. "</p> <br>"; 
-                    echo $read;
-                    $user_message = "";      
+                    $id = $row['uid'];
+                    $read ="<a  href='view.php?myid=".$id. "'>".$message."<br></a>";
+                    echo $read; 
+                    $user_message = " ";
                   }
                 }
               }
             }
-          }
+          
 ?>
