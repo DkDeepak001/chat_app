@@ -1,0 +1,79 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+
+}
+html{
+    overflow: hidden;
+}
+body{
+    overflow: hidden;
+    
+    
+}
+h1{
+    color: rgb(20, 20, 20);
+    font-size: 50px;
+        font-family: 'Arapey', serif;
+        letter-spacing: 2px;
+        
+}
+.cont{
+     transform: translate(478px,-65px );  
+         font-family: 'Arapey', serif;
+  
+}
+.cont  input{
+    width: 330px;
+    border:2px solid  #1062ce;
+    border-radius: 20px;
+    padding: 0.25% 0%;
+        font-family: 'Arapey', serif;
+
+}
+.msggg{
+
+    height: 70vh;
+    width: 30vw;
+    border:  2px black solid;
+    margin: auto;     
+    overflow: scroll;
+    transform: translateY(-70px);
+        font-family: 'Arapey', serif;
+        overflow-x: hidden;
+        background-color: rgb(121, 120, 120);
+
+}
+#msggOwner{
+    font-size: 16px;
+    color: white;
+}
+#msgTime{
+    margin-top: -10.5%;
+    padding-left: 60%;
+    font-size: 13px;
+}
+#msgg{
+    margin-top: -2%;
+    font-size: 25px;
+    
+}
+#msgDiv{
+    background-color: #1062ce;
+    color: black;
+    padding-left: 2%;
+    border-radius: 20px;
+    margin: 0% 5%;
+  
+}
+.form-group{
+    text-align: right;
+    transform: translateY(-50px);
+    margin: 0% 2%;
+        font-family: 'Arapey', serif;
+
+}
+.mar{
+    padding: 0.5% 1.5%;
+}

@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/welcome.css">
+    <link rel="stylesheet" href="css/materialbtn.css">
+    <link rel="stylesheet" href="css/display.css">
+    <title>Display</title>
 </head>
 <body>
-    
+    <nav>
+    <ul>
+    <li><a href="chat.php">Chat</a></li>
+    <li><a href="welcome.php">Home</a></li>
+    <li><a href="forum.php">Forum</a></li>
+    </ul>
+    </nav>
 
 <?php
 
@@ -27,7 +36,8 @@ require_once "db.php";
     if (mysqli_num_rows($result) > 0) {
      // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
-    echo   $row["username"] . $row["time"].$row["message"]. "<br>";
+    $read = "<div class='headAns'><div class='paragrp'><p class='paraname'>". $row["username"] ."</p><p class='paraTime'>" .$row["time"]."</p></div><p class='paraAns'> ".$row["message"]. "</p></div>";
+      echo $read;
   }
 } else {
   echo "0 results";
@@ -36,12 +46,13 @@ require_once "db.php";
 
 
 ?>
+<div class="formAns">
 <form action="" method="POST"> 
-<label for="ans" >answer</label>
+<label for="ans" >Answer : </label>
 <input name="ans" >
-<button>post</button>
+<button class="btn btn-primary btn-rounded mar">post</button>
 </form>
-
+</div>
 
 <?php
 $ans =($_POST['ans']);
@@ -71,7 +82,7 @@ $ans =($_POST['ans']);
                       $time =$row["time"];
                       $year = $row['year'];
                       $id = $row['qid'];
-                      $read = $msg_owner." ".$message."<br>" ;
+                      $read ="<div class='postAnsuser'><div class=postAnsgrp><p class='postAnsName'>". $msg_owner."</p><p class='postAnsTime'>".$time."</p></div><p class='postAnsMsgg'> ".$message."</p></div>" ;
                       echo $read; 
                   }
                 }
@@ -86,7 +97,7 @@ $ans =($_POST['ans']);
                       $time =$row["time"];
                       $year = $row['year'];
                       $id = $row['qid'];
-                      $read = $msg_owner." ".$message."<br>" ;
+                      $read ="<div class='postAnsuser'><div class=postAnsgrp><p class='postAnsName'>". $msg_owner."</p><p class='postAnsTime'>".$time."</p></div><p class='postAnsMsgg'> ".$message."</p></div>" ;
                       echo $read; 
                       }
                     }

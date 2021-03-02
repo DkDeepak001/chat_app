@@ -3,39 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
-    <title>Document</title>
+  <link rel="stylesheet" href="css/welcome.css">
+  <link rel="stylesheet" href="css/materialbtn.css">
+  <link rel="stylesheet" href="css/chat.css">
+  <title>chatroom</title>
 </head>
 <body>
 <nav>
     <ul>
     <li><a href="#">Chat</a></li>
-    <li><a href="forum.php">Forum</a></li>
     <li><a href="welcome.php">Home</a></li>
+    <li><a href="forum.php">Forum</a></li>
     </ul>
     </nav>
-<h1>chat</h1>
-
+<h1>Chatroom</h1>
+<form action="logout.php" method="POST"> 
+  <div class="form-group">
+  <input type="submit" class="btn btn-primary btn-rounded" value="Logout">
+  </div> 
+  </form> 
 <br>
-<form action="" method="POST" id="contact-form">
-<input type="message" name="message" required>
-<button type="send" id="send" name="send" value="send" >send</button>
-<div class="msggg">
+<div class="msggg" id="myDiv">
 <?php 
  require_once "chatroom.php";
 ?>
 </div>
+<div class="cont">
+<form action="" method="POST" id="contact-form">
+<input type="message" name="message" required>
+<button type="send" id="send" name="send" value="send"  class="btn btn-primary btn-rounded mar" >send</button>
 </form>
+</div>
 
-<form action="logout.php" method="POST"> 
-  <div class="form-group">
-  <input type="submit" class="btn btn-primary" value="Logout">
-  </div> 
-  </form> 
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script>
 
@@ -46,6 +45,13 @@
    }, 2400);
    $.ajaxSetup({ cache: false });
 });
+</script>
+<script>
+ 
+setInterval(function myFunction() {
+  var elmnt = document.getElementById("myDiv");
+  elmnt.scrollTop = 100000000000000;
+}, 1000);
 </script>
 
     </body>

@@ -5,69 +5,94 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
-</head>
+  <link rel="stylesheet" href="css/reg.css">
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital@1&display=swap" rel="stylesheet"> </head>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Arapey&family=Kalam&display=swap" rel="stylesheet"> 
+<!-- MDB -->
+<link rel="stylesheet" href="css/materialbtn.css">
 <body>
+    <div class="mainwrapper">
     <div class="wrapper">
-        <h2>Sign Up</h2>
-        <p>Please fill this form to create an account.</p>
+        <h2 class="siginUP">SIGN UP</h2>
         <form action="" method="POST">
-            <div class="form-group">
-                <label>Username</label>
-                <input type="text" name="username" class="form-control">
-                <span class="help-block"></span>
-            </div>    
-            <div class="form-group ">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control">
-                <span class="help-block"></span>
-            </div>
-            <div class="form-group ">
-                <label>Confirm Password</label>
-                <input type="password" name="confirm_password" class="form-control">
-                <span class="help-block"></span>
-            </div>
-            <div class="form-group">
-                <label>email</label>
-                <input type="text" name="email" class="form-control">
-                <span class="help-block"></span>
-            </div>    
-            <div class="form-group">
-                    <label >year</label>
-                    <select name="year" id="year">
-                    <option>select</option>
+                  
+      <div class="group">      
+      <input type="text" name="username" required >
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Username</label>
+    </div>
+          
+    <div class="group">      
+      <input type="password"  name="password" required>
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Password</label>
+    </div>
+        <div class="group">      
+      <input type="password" name="confirm_password" required>
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Confirm Password</label>
+    </div>
+      <div class="group">      
+      <input type="email" name="email" required>
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Email</label>
+    </div>    
+           
+   <div class="select">
+                    <select name="year" id="year" class="select-text" required>
+					<option  name="year" id="year" disabled selected></option>
                     <option  name="year" id="year">1</option>
                     <option  name="year" id="year">2</option>
                     <option  name="year" id="year">3</option>
                     </select>
+                    <span class="select-highlight"></span>
+					<span class="select-bar"></span>
+					<label class="select-label">Year</label>
             </div>
-             <div class="form-group">
-                    <label >Dept</label>
-                    <select name="Dept" id="Dept">
-                    <option name="Dept" id="Dept">select</option>
-                    <option name="Dept" id="Dept">Bsc(CT)</option>                    
+             <div class="select">
+                    <select name="Dept" id="Dept" class="select-text" required>
+                   <option  name="Dept" id="Dept" disabled selected></option>
+						<option  name="Dept" id="Dept">Bsc(CT)</option>
+						<option  name="Dept" id="Dept">Bsc(CS)</option>
+						<option  name="Dept" id="Dept">Bsc(IT)</option>
                     </select>
+                    <span class="select-highlight"></span>
+					<span class="select-bar"></span>
+					<label class="select-label">Dept</label>
             </div>
-             <div class="form-group">
-                    <label for="sec">Sec</label>
-                    <select name="sec" id="sec">
-                    <option name="sec" id="sec">select</option>
+             <div class="select">
+                    <select name="sec" id="sec" class="select-text" required>
+                   <option  name="Dept" id="Dept" disabled selected></option>
                     <option name="sec" id="sec">A</option>                    
                     <option name="sec" id="sec">B</option>                    
                     </select>
-            </div>
+                    	<span class="select-highlight"></span>
+					<span class="select-bar"></span>
+					<label class="select-label">Sec</label>
+            </div> 
                 
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
-                <input type="reset" class="btn btn-default" value="Reset">
+            <div class="btn-grp">
+                <button type="submit"class="btn btn-warning btn-rounded" value="Submit">submit</button>
+                <button type="reset"   class="btn btn-outline-danger btn-rounded"  data-mdb-ripple-color="dark" value="Reset">reset</button>
             </div>
-            <p>Already have an account? <a href="login.php">Login here</a>.</p>
-        </form>
-    </div>    
+                    </form>
+
+</div>
+            <div class="wrapper2">
+                <h2>Welcome Back!</h2>
+                <h4>To Keep Connect With Us Please Login 
+                    With Your Personal info
+                </h4>
+                <a href="login.php" >
+     <button class="btn btn-outline-dark btn-rounded"  data-mdb-ripple-color="dark">Login </button>
+</a>    </div>    
+    </div>
    <?php
         require_once "db.php";
         $username = $password = $confirm_password = $email = $year = $dept = $sec =  "";
@@ -147,5 +172,10 @@
 
         }
     ?>
+    <!-- MDB -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"
+></script>
 </body>
 </html>

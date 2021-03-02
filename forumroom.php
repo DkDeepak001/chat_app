@@ -48,7 +48,7 @@
                     $time =$row["time"];
                     $year = $row['year'];
                     $id = $row['uid'];
-                    $read ="<a  href='view.php?myid=".$id. "'>".$message."<br></a>";
+                    $read ="<a  href='view.php?myid=" .$id. "'> <div class='paraForum'> <div class='postGrp'> <p class='postName'> ".$msg_owner." From ".$dept."</p><p class='postTime'> ".$time."</p></div> <p class='postMsg'> ".$message."</p></div> </a>";
                     echo $read;  
                     $user_message = " ";
                   
@@ -69,7 +69,7 @@ else{
                     $time =$row["time"];
                     $year = $row['year'];
                     $id = $row['uid'];
-                    $read ="<a  href='view.php?myid=".$id. "'>".$message."<br></a>";
+                    $read ="<a  href='view.php?myid=" .$id. "'> <div class='paraForum'> <div class='postGrp'> <p class='postName'> ".$msg_owner." From ".$dept."</p><p class='postTime'> ".$time."</p></div> <p class='postMsg'> ".$message."</p></div> </a>";
                     echo $read; 
                     $user_message = " ";
                   }

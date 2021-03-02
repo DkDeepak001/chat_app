@@ -3,22 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
-    <title>Document</title>
+  <link rel="stylesheet" href="css/welcome.css">
+  <link rel="stylesheet" href="css/materialbtn.css">
+  <link rel="stylesheet" href="css/home.css">  
+  <title>Welcome</title>
 </head>
 <body>
     <nav>
     <ul>
     <li><a href="chat.php">Chat</a></li>
-    <li><a href="forum.php">Forum</a></li>
     <li><a href="#">Home</a></li>
+    <li><a href="forum.php">Forum</a></li>
     </ul>
     </nav>
-    <h1>welcome to chat application</h1>
+    <div class="landingpage">
+    <h1>Welcome to chat application</h1>
     
     <?php
     require_once "session.php";
@@ -36,7 +35,6 @@
     header("location: login.php");  
     exit;
    }else{
-    echo $_SESSION["username"];
     $username = $_SESSION["username"];
     $sql = "SELECT * from User_Details WHERE uname = '$username'";
     $result = mysqli_query($link, $sql);
@@ -50,15 +48,15 @@
          } else {
             echo "0 results";
          }
-         echo "<br>".$username." ".$email." is from " .$year ." year of " .$dept;
+         echo "<br><div class='bodymain'>  Username : ".$username." <br> Email ID :  ".$email." <br> Year :  " .$year ." <br> Deptartment :  " .$dept . " <br> Section : " . $sec ; 
 }
 
    ?>  
  <form action="logout.php" method="POST" > 
   <div class="form-group">
-  <input type="submit" class="btn btn-primary" value="Logout">
+  <input type="submit" class="btn btn-primary btn-rounded mar" value="Logout">
   </div> 
   </form> 
- 
+</div>
  </body>
 </html>

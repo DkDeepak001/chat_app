@@ -5,32 +5,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
+ <link rel="stylesheet" href="css/login.css">
+ <link rel="stylesheet" href="css/materialbtn.css">
 </head>
 <body>
-    <div class="wrapper">
+<div class="mainwrapper">
+    <div class="wrapper1">
         <h2>Login</h2>
-        <p>Please fill in your credentials to login.</p>
         <form action="/session.php" method="POST">
-            <div class="form-group">
-                <label>Username</label>
-                <input type="text" name="username" class="form-control">
-                <span class="help-block"></span>
-            </div>    
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control">
-                <span class="help-block"></span>
+                  <div class="group">      
+      <input type="text" name="username" >
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Username</label>
+    </div>
+           <div class="group">      
+      <input type="password"  name="password" >
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Password</label>
+    </div>
+     <input type="submit" class="btn btn-primary btn-rounded" value="Login">
+    </form>
+           
             </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Login">
+            <div class="wrapper2">
+            <h2>Hello Friends!</h2>
+            <h4>Enter Your Personal Details and start Journey With us!</h4>
+            <a href="registration.php">
+            <button class="btn btn-outline-dark btn-rounded">Sign up</button></a>
+                            <!-- <p>Don't have an account? <a href="registration.php">Sign up now</a>.</p> -->
+
             </div>
-            <p>Don't have an account? <a href="registration.php">Sign up now</a>.</p>
-        </form>
+        
+        </div> 
       <?php
       require_once "session.php";
    if($count>=1){  
@@ -40,6 +48,6 @@
    }
       ?>
 
-    </div>    
+    
 </body>
 </html>

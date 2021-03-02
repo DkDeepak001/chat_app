@@ -44,7 +44,7 @@
                     $msg_owner = $row["uname"];
                     $message = $row["message"];
                     $time =$row["time"];
-                    $read = "<p id='msgg'> message from :" .$msg_owner."<br> Message:" .$message ."<br> Time".$time ."<br><br> </p>"; 
+                    $read = "<div id='msgDiv'><p id='msggOwner'>" .$msg_owner."</p><p id='msgTime'> " .$time."</p><p id='msgg'>".$message ."</p> </div>"; 
                     echo $read;
 
                   }
@@ -61,7 +61,7 @@
                     $msg_owner = $row["uname"];
                     $message = $row["message"];
                     $time =$row["time"];
-                    $read = "<p id='msgg'> message from :" .$msg_owner."<br> Message:" .$message ."<br> Time".$time ."<br><br> </p>"; 
+                    $read = "<div id='msgDiv'><p id='msggOwner'>" .$msg_owner."</p><p id='msgTime'> " .$time."</p><p id='msgg'>".$message ."</p> </div>"; 
                     echo $read;
 
                   }

@@ -1,0 +1,61 @@
+body{
+    color: black;
+}
+.headAns{
+    border: 1px solid black;
+    margin: 2% 8%;
+    padding: 1% 0%;
+    border-radius: 10px;
+    
+}
+.paragrp{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0%  2%;
+}
+.paraname{
+    font-size: 16px;
+}
+.paraTime{
+    font-size: 14px;
+}
+.paraAns{
+    font-size: 26px;
+    padding: 0% 8%;
+}
+.formAns{
+    margin: 0% 8%;
+    transform: translateY(-20px);
+}
+
+.formAns input{
+    border: 2px solid #2F80ED;
+    border-radius:10px;
+    transform: translateY(-3px);
+    width: 50%;
+}
+.formAns label{
+    font-size: 26px;
+}
+.mar{
+    padding: 0.3% 1.5%;
+    transform: translateY(-3px);
+}
+.postAnsuser{
+    border:  1px black solid;
+    margin: 2% 8%;
+    padding: 1% 0%;
+    border-radius: 10px;
+}
+.postAnsgrp{
+      display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0%  2%;
+}
+
+.postAnsMsgg{
+    font-size: 22px;
+    padding: 0% 5%;
+}
